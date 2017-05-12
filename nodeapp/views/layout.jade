@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      ul#header-style
+        p This is the header
+        li.header
+          a(href="./login") Login Page
+        li.header
+          a(href="./get-data") CRUD Operations
+        li.header
+          p This is not a link
+
+
+    h1 Basic Node Functions - containing layout to extend to other pages
+
+    ul
+      li  Display list points from array from an each loop
+    - var anyArray = [1,2,3]
+    each value in anyArray
+      p= value
+
+    h2 Display an Image
+
+    img(src= "../images/alps.jpg")
+
+    h2 Link to another page
+
+    a(href="./login") Login Page
+    br
+    a(href="./get-data") CRUD Operations
+
+    block content
+    br
+    br
+    footer This is the second footer

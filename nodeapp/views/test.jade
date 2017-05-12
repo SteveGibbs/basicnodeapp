@@ -1,0 +1,19 @@
+//
+   Created by carolineperier on 5/05/2017.
+
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        ul
+            li  This is the test page
+            p ID passed:
+            p= output
+
+        - var anyArray = [1,2,3]
+        each value in anyArray
+            p= value
+
+        block content

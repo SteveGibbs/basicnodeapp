@@ -1,0 +1,37 @@
+//
+   Created by carolineperier on 11/05/2017.
+
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+
+
+    div#center
+        h1 Welcome to the login and validation
+        br
+        br
+
+        form(action="/login" method="post")
+            label(for="email") Email
+            input(type="text" id="email" name="email")
+
+            label(for="password") Password
+            input(type="password" id="password" name="password")
+
+            label(for="confirmPassword") Confirm Password
+            input(type="password" id="confirmPassword" name="confirmPassword")
+
+
+            button(type="submit") Login Sign Up
+        br
+        if success
+            h2 Successful Validation
+        else if errors
+            p There was an error with your login
+
+        br
+        br
+        a(href="./get-data")  Go to CRUD database
