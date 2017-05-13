@@ -7,10 +7,15 @@ html
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
-        ul
-            li  This is the show page
-            p ID passed:
-            p= id
 
+        h1 #{item.country}
+
+        p #{item.description}
+        br
+        p #{item.image}
+        br
+        img(src="#{item.image}")
+        br
+        p #{item._id}
 
         block content

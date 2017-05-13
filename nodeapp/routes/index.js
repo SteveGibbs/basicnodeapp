@@ -106,15 +106,48 @@ router.post('/submit', function(req, res, next){
     //console.log("help");
     res.redirect("/get-data");
 });
-
+/*
 router.get('/get-data/:id', function(req, res, next){
-
-    res.render('show', {id: req.params.id, item: req.params.id});
-
-
+    var uniqueid = req.params.id;
+    var result;
+    mongo.connect(url, function (err, db) {
+        assert.equal(null, err);
+        db.collection('travel').findOne({'_id': objectId(uniqueid)}, function (err, doc) {
+            assert.equal(null, err);
+            console.log('item found');
+            console.log(uniqueid);
+            console.log(doc);
+            console.log(doc.country);
+            console.log(doc.description);
+            db.close();
+        });
+    res.render('show');
+    });
+    //res.render('show', {item: result, id: req.params.id, quote: req.params.id});
+});
+*/
+router.get('/get-data/:id', function(req, res, next){
+    var uniqueid = req.params.id;
+    var result = {};
+    mongo.connect(url, function (err, db) {
+        assert.equal(null, err);
+        var getObject = function() {
+            db.collection('travel').findOne({'_id': objectId(uniqueid)}, function (err, doc) {
+                assert.equal(null, err);
+                console.log('item found');
+                console.log(uniqueid);
+                console.log(doc);
+                console.log(doc.country);
+                result = doc;
+                db.close();
+                res.render('show', {item: result});
+            });
+        };
+        getObject();
+        console.log("getObject function has been called");
+    });
 
 });
-
 
 router.get('/test/:id', function(req, res, next){
   res.render('test', {output: req.params.id});
